@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping list!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #b41c56;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav button {
+            background-color: #7f5bea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #004d40;
+        }
+
+        /* Page content */
+        .content {
+            margin-top: 100px; /* adds space below the fixed navbar */
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+        
+        h2 {
+            font-size: 25px;
+        }
+
+        textarea{
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            resize: none;
+            outline: none;
+            border: none;
+            background: transparent;
+        }
+
+        .about-text {
+            font-size: 20px;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+            white-space: pre-wrap;  /* preserves line breaks */
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="{% url 'recipe_book' %}"><button>Antigen Formula Finder</button></a>
+        <a href="{% url 'current_meals' %}"><button>Formula to Antigen Lookup</button></a>
+        <a href="{% url 'shopping_list' %}"><button>Explore serovar locations</button></a>
+    </nav>
+
+</body>
+</html>
