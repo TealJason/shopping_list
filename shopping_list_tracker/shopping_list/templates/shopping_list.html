@@ -83,7 +83,10 @@
     
             <ul>
                 {% for name, ingredient_total in ingredient_dict.items %}
-                    <li>{{ name }}: {{ ingredient_total }}</li>
+                    <li>
+                        {{ name }}: {{ ingredient_total }}
+                        <button type="button" onclick="this.parentElement.remove()">✕</button>
+                    </li>
                 {% endfor %}
             </ul>
         {% endif %}
