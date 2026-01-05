@@ -5,4 +5,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("recipe_book/", views.recipe_book, name="recipe_book"),  # main app logic
+    path("recipe_book/addRecipe/", views.addRecipe, name="addRecipe"),  # main app logic
+
 ]

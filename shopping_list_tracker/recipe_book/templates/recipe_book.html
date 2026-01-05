@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #b41c56;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav button {
+            background-color: #7f5bea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #004d40;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .Subheading {
+            margin-top: 100px; /* adds space below the fixed navbar */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div>
+    <nav>
+        <a href="{% url 'recipe_book' %}"><button>Recipe Book</button></a>
+        <a href="{% url 'current_meals' %}"><button>Meal check</button></a>
+        <a href="{% url 'shopping_list' %}"><button>Create shopping list</button></a>
+    </nav>
+</div>
+    <div class="Subheading">
+        <h1>Recipe Book</h1>
+    </div>
+
+    <div>
+        <form method="post" action="{% url 'addRecipe' %}">
+            {% csrf_token %}
+            Enter the name of the Recipe: <input type="text" name="recipename">
+            Enter the Recipe ingredients:<input type="text" name="ingredients">
+            <button type="submit">Add Recipe</button>
+          </form>
+    </div>
+</body>
