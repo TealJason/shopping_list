@@ -41,6 +41,11 @@
             margin-top: 100px; /* adds space below the fixed navbar */
         }
 
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -67,6 +72,14 @@
             <br>
             <button type="submit">Add Recipe</button>
         </form>
+    </div>
+    <div>
+        Remove a recipe:
+        <form method="post" action="{% url 'removeRecipe' %}">
+            {% csrf_token %}
+            Enter the name of the Recipe to remove: <input type="text" name="recipename">
+            <br>
+            <button type="submit">Remove Recipe</button>
     </div>
 
     <div>
