@@ -59,7 +59,7 @@
     </div>
 
     <div>
-        <form method="post" action="{% url 'create_shopping_list' %}">
+        <form method="post" action="{% url 'shopping_list' %}">
             {% csrf_token %}
     
             <p>Select meals for shopping list:</p>
@@ -76,4 +76,17 @@
             <button type="submit">Create shopping list</button>
         </form>
     </div>
+
+    <div>
+        {% if ingredient_dict %}
+            <p>Shopping list for selected recipes</p>
+    
+            <ul>
+                {% for name, ingredient_total in ingredient_dict.items %}
+                    <li>{{ name }}: {{ ingredient_total }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    
 </body>
