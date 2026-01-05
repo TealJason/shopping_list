@@ -3,7 +3,7 @@ from django.conf import settings
 
 def addRecipe(ingredients_list, recipe_name):
     
-    path = os.path.join(settings.BASE_DIR, "recipe_book", "data", f"recipe_book.json")
+    path = os.path.join(settings.BASE_DIR, "data", f"recipe_book.json")
     
 
     # Read existing data
@@ -20,7 +20,7 @@ def addRecipe(ingredients_list, recipe_name):
         f.write(json.dumps(recipe_dictionary, indent=4))
         
 def removeRecipe(recipe_name):
-    path = os.path.join(settings.BASE_DIR, "recipe_book", "data", f"recipe_book.json")
+    path = os.path.join(settings.BASE_DIR, "data", f"recipe_book.json")
     
     # Read existing data
     with open(path, "r") as f:

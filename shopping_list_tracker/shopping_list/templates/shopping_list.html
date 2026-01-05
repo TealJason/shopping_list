@@ -59,9 +59,21 @@
     </div>
 
     <div>
-        <form method="post" action="{% url 'addRecipe' %}">
+        <form method="post" action="{% url 'create_shopping_list' %}">
             {% csrf_token %}
-
-          </form>
+    
+            <p>Select meals for shopping list:</p>
+    
+            {% for name, ingredients in recipes.items %}
+                <label>
+                    <input type="checkbox" name="meals" value="{{ name }}">
+                    {{ name }}
+                </label>
+                <br>
+            {% endfor %}
+    
+            <br>
+            <button type="submit">Create shopping list</button>
+        </form>
     </div>
 </body>

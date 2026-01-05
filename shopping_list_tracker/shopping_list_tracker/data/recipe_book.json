@@ -1,0 +1,36 @@
+{
+    "Curry": [
+        "chopped tomatoes",
+        "kidney beans",
+        "chickpeas",
+        "coconut milk",
+        "rice",
+        "cumin",
+        "tumeric",
+        "paprika",
+        "vegtable stock"
+    ],
+    "Ploughmans": [
+        "bread",
+        "sweet pickle",
+        "cheese",
+        "mayo",
+        "lettuce"
+    ],
+    "Peanut noodles": [
+        "soy sauce",
+        " seasame oil",
+        " chilli oil",
+        " white rice wine vinegar",
+        " peanut butter",
+        " tagliatelle"
+    ],
+    "Mapo Tofu": [
+        "tofu",
+        "black bean sauce",
+        "rice",
+        "sweet peppers",
+        "soy sauce",
+        "mince"
+    ]
+}
