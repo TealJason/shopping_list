@@ -2,7 +2,19 @@ import os, json
 from django.conf import settings
 
 def addRecipe(ingredients_list, recipe_name):
-    path = os.path.join(settings.BASE_DIR, "recipe_book", "data", f"{recipe_name}.json")
-    with open(path, "a") as f:
-        json.dump({recipe_name: ingredients_list}, f)
-        f.write("\n")
+    
+    path = os.path.join(settings.BASE_DIR, "recipe_book", "data", f"recipe_book.json")
+    
+
+    # Read existing data
+    with open(path, "r") as f:
+        recipe_dictionary = json.loads(f.read())
+
+    try:
+        recipe_dictionary[recipe_name] = ingredients_list
+    except Exception as e:
+        print(f"Error adding recipe: {e}")
+        
+    # Write updated data back
+    with open(path, "w") as f:
+        f.write(json.dumps(recipe_dictionary, indent=4))
