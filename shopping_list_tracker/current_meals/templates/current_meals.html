@@ -54,12 +54,41 @@
     </nav>
 </div>
     <div class="Subheading">
-        <h1>Check what meals you have ingridents for</h1>
+        <h1>Check what meals you have ingredients for</h1>
     </div>
+
+    <div>
+    <form method="post" action="{% url 'current_meals' %}">
+        {% csrf_token %}
+        <label>Enter available ingredients:</label><br>
+
+        <div id="ingredients-container">
+            <input type="text" name="available_ingredients" size="50">
+        </div>
+        <br>
+
+        <button type="button" onclick="addIngredient()">Add another ingredient</button>
+        <br><br>
+        <input type="submit" value="Check Meals">
+    </form>
+</div>
+
+<script>
+function addIngredient() {
+    const container = document.getElementById("ingredients-container");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.name = "available_ingredients";  // same name to get a list in Django
+    input.size = 50;
+    container.appendChild(document.createElement("br"));
+    container.appendChild(input);
+}
+</script>
 
     <div>
         <form method="post" action="{% url 'addRecipe' %}">
             {% csrf_token %}
         </form>
     </div>
+
 </body>
