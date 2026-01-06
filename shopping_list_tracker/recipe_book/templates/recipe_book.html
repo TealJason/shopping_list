@@ -57,7 +57,8 @@
         <a href="{% url 'current_meals' %}"><button>Meal check</button></a>
         <a href="{% url 'shopping_list' %}"><button>Create shopping list</button></a>
     </nav>
-</div>
+    </div>
+
     <div class="Subheading">
         <h1>Recipe Book</h1>
     </div>
@@ -73,6 +74,7 @@
             <button type="submit">Add Recipe</button>
         </form>
     </div>
+
     <div>
         Remove a recipe:
         <form method="post" action="{% url 'removeRecipe' %}">
@@ -94,6 +96,6 @@
                 <li>No recipes available.</li>
             {% endfor %}
         </ul>
-
     </div>
+    
 </body>
