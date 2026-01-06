@@ -5,7 +5,7 @@ import csv
 
 def find_possible_meals():
     recipie_json_path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
-    fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.csv")
+    fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")
 
     possible_meals = []
 
@@ -22,18 +22,28 @@ def find_possible_meals():
     return possible_meals
 
 def write_fridge_csv(fridge_list, remove):
-    fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.csv")
+    fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")
 
-    with open(fridge_csv_path, "r") as f:
-        existing_items = [line.strip() for line in f.readlines()]
+    # Normalize input
+    fridge_list = [i.strip().lower() for i in fridge_list if i.strip()]
+
+    # Read existing
+    if os.path.exists(fridge_csv_path):
+        with open(fridge_csv_path, "r") as f:
+            existing_items = [line.strip().lower() for line in f]
+    else:
+        existing_items = []
 
     if not remove:
-        with open(fridge_csv_path, "a") as f:
-            for item in fridge_list:
-                if item not in existing_items:
-                    f.write(f"{item}\n")
+        # ADD mode
+        merged = set(existing_items)
+        merged.update(fridge_list)
     else:
-        with open(fridge_csv_path, "w") as f:
-            for item in existing_items:
-                if item not in fridge_list:
-                    f.write(f"{item}\n")
+        # REMOVE mode
+        merged = set(existing_items) - set(fridge_list)
+
+    # Write back
+    with open(fridge_csv_path, "w") as f:
+        for item in sorted(merged):
+            f.write(item + "\n")
+
