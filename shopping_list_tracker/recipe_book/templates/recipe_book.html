@@ -46,6 +46,10 @@
             padding: 0;
             text-align: center;
         }
+        sh1{
+            font-size: small;
+            color: grey;
+        }
     </style>
 </head>
 
@@ -69,13 +73,17 @@
             {% csrf_token %}
             Enter the name of the Recipe: <input type="text" name="recipename">
             <br>
-            Enter the Recipe ingredients:<input type="text" name="ingredients">
+            Enter the Recipe ingredients:<input type="text" name="ingredients"><br>
+            <sh1>use a comma to separate ingredients e,g. ingredient1, ingredient2, ingredient3</sh1>
+            <br>
             <br>
             <button type="submit">Add Recipe</button>
+            <br>
         </form>
     </div>
 
     <div>
+        <br>
         Remove a recipe:
         <form method="post" action="{% url 'removeRecipe' %}">
             {% csrf_token %}

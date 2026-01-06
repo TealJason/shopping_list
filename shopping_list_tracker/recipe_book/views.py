@@ -16,8 +16,8 @@ def recipe_book(request):
     return render(request, "recipe_book.html",{'recipes': recipes})
 
 def addRecipe(request):
-    if request.method == "POST":
-        ingredients_list = request.POST["ingredients"].split(",")
+    if request.method == "POST":      
+        ingredients_list = [i.strip().lower()for i in request.POST["ingredients"].split(",")if i.strip()]
         recipe_name = request.POST["recipename"].strip()
         utils.addRecipe(ingredients_list, recipe_name)
         path = os.path.join(settings.BASE_DIR, "data", f"recipe_book.json")
