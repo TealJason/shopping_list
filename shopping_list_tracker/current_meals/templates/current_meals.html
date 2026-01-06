@@ -91,16 +91,15 @@
     <ul>
         {% for meal, missing in possible_meals.items %}
                 <br>
-                {{ meal }}: 
-                Number of missing ingredients: {{ missing|length }}
-                {% if missing %}
+                {{ meal }}:  Number of missing ingredients: {{ missing|length }}
+            {% if missing %}
                 <br>
                 Missing: {{ missing|join:", " }}
                 <br>
-                {% endif %}
+            {% endif %}
             
         {% empty %}
-            No meals found.
+                No meals found.
         {% endfor %}
     </ul>
 </div>
