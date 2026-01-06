@@ -46,17 +46,17 @@
 
 <body>
 
-    <div>
+<div>
     <nav>
         <a href="{% url 'recipe_book' %}"><button>Recipe Book</button></a>
         <a href="{% url 'current_meals' %}"><button>Meal check</button></a>
         <a href="{% url 'shopping_list' %}"><button>Create shopping list</button></a>
     </nav>
-    </div>
+</div>
 
-    <div class="Subheading">
+ <div class="Subheading">
         <h1>Mange the ingridents you currently have then check what meals you have ingredients for</h1>
-    </div>
+</div>
 
 <div>
     <form method="post" action="{% url 'update_or_check_fridge' %}">
@@ -77,7 +77,7 @@
     </form>
 </div>
 <div>
-    <h2> Current fridge</h2>
+    <h2> Current Fridge/Cupboard</h2>
     <ul>
         {% for item in fridge_items %}
             {{ item }}<br>

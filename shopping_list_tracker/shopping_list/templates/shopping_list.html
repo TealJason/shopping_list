@@ -71,11 +71,13 @@
                 </label>
                 <br>
             {% endfor %}
-    
+            <br>
+            <button type="add to shopping_list">Manually add item</button>
+            <input type="check" name="manual">
             <br>
             <button type="submit">Create shopping list</button>
-            <input type="check" name="Ommit fridge contents">
-            
+            <br>
+            <input type="checkbox" name="omit" value="1"> Ommit fridge contents when making the shopping list
         </form>
     </div>
 

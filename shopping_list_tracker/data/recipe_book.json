@@ -22,15 +22,6 @@
         "soy sauce",
         "mince"
     ],
-    "Cottage pie": [
-        "potatoes",
-        "mixed vegetable",
-        "mince",
-        "vegtable stock",
-        "flour",
-        " onion",
-        "tomato puree"
-    ],
     "Bolognaise": [
         "spaghetti",
         "sauce",
@@ -50,18 +41,6 @@
         "chopped tomatoes",
         "chickpeas"
     ],
-    "Curry": [
-        "chopped tomatos",
-        " kidney beans",
-        " chickpeas",
-        " coconut milk",
-        " rice",
-        " cumin",
-        " tumeric",
-        " paprika",
-        "vegtable stock",
-        "lentils"
-    ],
     "Stir fry": [
         "stir fry vegetables",
         "noodles",
@@ -71,5 +50,31 @@
     "Pasta and sauce": [
         "pasta",
         " sauce"
+    ],
+    "Curry": [
+        " chopped tomatoes",
+        " kidney beans",
+        " chickpeas",
+        " coconut milk",
+        " rice",
+        " cumin",
+        " tumeric",
+        " paprika",
+        " vegetable stock",
+        " lentils "
+    ],
+    "Pea soup": [
+        "peas",
+        " vegetable stock",
+        " cream"
+    ],
+    "Cottage pie": [
+        "potatoes",
+        " mixed vegetable",
+        " vegetable stock",
+        " mince",
+        " tomato puree",
+        "flour",
+        "onion"
     ]
 }
