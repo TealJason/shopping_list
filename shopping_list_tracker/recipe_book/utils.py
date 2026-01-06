@@ -4,7 +4,7 @@ from django.conf import settings
 def addRecipe(ingredients_list, recipe_name):
     
     path = os.path.join(settings.BASE_DIR, "data", f"recipe_book.json")
-    
+    print (path)
 
     # Read existing data
     with open(path, "r") as f:

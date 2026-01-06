@@ -52,43 +52,49 @@
         <a href="{% url 'current_meals' %}"><button>Meal check</button></a>
         <a href="{% url 'shopping_list' %}"><button>Create shopping list</button></a>
     </nav>
-</div>
-    <div class="Subheading">
-        <h1>Check what meals you have ingredients for</h1>
     </div>
 
-    <div>
-    <form method="post" action="{% url 'current_meals' %}">
+    <div class="Subheading">
+        <h1>Mange the ingridents you currently have then check what meals you have ingredients for</h1>
+    </div>
+
+<div>
+    <form method="post" action="{% url 'update_or_check_fridge' %}">
         {% csrf_token %}
-        <label>Enter available ingredients:</label><br>
+        <label>Enter ingredients:</label><br>
 
         <div id="ingredients-container">
-            <input type="text" name="available_ingredients" size="50">
+            <input type="text" name="ingredients" size="50">
         </div>
         <br>
-
         <button type="button" onclick="addIngredient()">Add another ingredient</button>
         <br><br>
-        <input type="submit" value="Check Meals">
+        <input type="submit" value="Add to fidge/cupboard" name="add" value="add"> 
+        <br><br>
+        <input type="checkbox" value="remove ingredients" name="remove" value="1"> Remove ingredients from fidge/cupboard
+        <br><br>
+        <input type="submit" value="check meal" name="check_meals" value="check" size="50">  check which meals can be made with your fridge
     </form>
 </div>
-
+<div>
+    <h2> Current fridge</h2>
+    <ul>
+        {% for item in fridge_items %}
+            {{ item }}<br>
+        {% empty %}
+            No items in fridge.
+        {% endfor %}
+</div>
 <script>
-function addIngredient() {
-    const container = document.getElementById("ingredients-container");
-    const input = document.createElement("input");
-    input.type = "text";
-    input.name = "available_ingredients";  // same name to get a list in Django
-    input.size = 50;
-    container.appendChild(document.createElement("br"));
-    container.appendChild(input);
-}
-</script>
-
-    <div>
-        <form method="post" action="{% url 'addRecipe' %}">
-            {% csrf_token %}
-        </form>
-    </div>
+    function addIngredient() {
+        const container = document.getElementById("ingredients-container");
+        const input = document.createElement("input");
+        input.type = "text";
+        input.name = "ingredients";
+        input.size = 50;
+        container.appendChild(document.createElement("br"));
+        container.appendChild(input);
+    }
+    </script>   
 
 </body>

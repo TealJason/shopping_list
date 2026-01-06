@@ -32,5 +32,25 @@
         "sweet peppers",
         "soy sauce",
         "mince"
+    ],
+    "Cottage pie": [
+        "potatoes",
+        "mixed vegetable",
+        "mince",
+        "vegtable stock",
+        "flour",
+        " onion",
+        "tomato puree"
+    ],
+    "Bolognaise": [
+        "spaghetti",
+        "sauce",
+        "mince",
+        "onion",
+        "tomato puree",
+        "garlic",
+        "carrots",
+        "celeri",
+        "soy sauce"
     ]
 }
