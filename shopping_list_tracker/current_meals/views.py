@@ -5,13 +5,18 @@ import os
 
 def current_meals(request): 
     fridge_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")
+
     fridge_items = []
-    
-    with open(fridge_path) as f:
-        for line in f.readlines():
-            fridge_items.append(line)
-    
-    return render(request, "current_meals.html", {"fridge_items":fridge_items})
+    if os.path.exists(fridge_path):
+        with open(fridge_path) as f:
+            fridge_items = [line.strip() for line in f]
+
+    possible_meals = utils.find_possible_meals(fridge_items)
+
+    return render(request, "current_meals.html", {
+        "fridge_items": fridge_items,
+        "possible_meals": possible_meals
+    })
 
 def update_or_check_fridge(request):
     fridge_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")
@@ -28,7 +33,5 @@ def update_or_check_fridge(request):
     if os.path.exists(fridge_path):
         with open(fridge_path) as f:
             fridge_items = [line.strip() for line in f]
-
-    return render(request, "current_meals.html", {
-        "fridge_items": fridge_items
-    })
+    possible_meals = utils.find_possible_meals(fridge_items)
+    return render(request, "current_meals.html", {"fridge_items": fridge_items,"possible_meals":possible_meals})

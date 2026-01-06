@@ -3,23 +3,29 @@ import json
 from django.conf import settings
 import csv
 
-def find_possible_meals():
+def find_possible_meals(available_ingredients):
     recipie_json_path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
-    fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")
 
-    possible_meals = []
+    # normalize fridge
+    available_ingredients = [i.strip().lower() for i in available_ingredients]
 
-    with open(fridge_csv_path, newline='') as f:
-        reader = csv.reader(f)
-        available_ingredients = [row[0] for row in reader] 
+    missing_ingredients_dict = {}
+
     with open(recipie_json_path) as f:
         recipe_dictionary = json.load(f)
 
     for meal, ingredients in recipe_dictionary.items():
-        if all(ingredient in available_ingredients for ingredient in ingredients):
-            possible_meals.append(meal)
+        missing = []
 
-    return possible_meals
+        for ingredient in ingredients:
+            ingredient = ingredient.strip().lower()
+            if ingredient not in available_ingredients:
+                missing.append(ingredient)
+
+        missing_ingredients_dict[meal] = missing
+
+    return missing_ingredients_dict
+
 
 def write_fridge_csv(fridge_list, remove):
     fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")

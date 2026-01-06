@@ -85,6 +85,26 @@
             No items in fridge.
         {% endfor %}
 </div>
+<div>
+    <h2>Meals you can make with current fridge contents</h2>
+
+    <ul>
+        {% for meal, missing in possible_meals.items %}
+                <br>
+                {{ meal }}: 
+                Number of missing ingredients: {{ missing|length }}
+                {% if missing %}
+                <br>
+                Missing: {{ missing|join:", " }}
+                <br>
+                {% endif %}
+            
+        {% empty %}
+            No meals found.
+        {% endfor %}
+    </ul>
+</div>
+
 <script>
     function addIngredient() {
         const container = document.getElementById("ingredients-container");
