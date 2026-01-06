@@ -9,7 +9,7 @@ def find_possible_meals(available_ingredients):
     # normalize fridge
     available_ingredients = [i.strip().lower() for i in available_ingredients]
 
-    missing_ingredients_dict = {}
+    results = []  # list of (meal, missing_list)
 
     with open(recipie_json_path) as f:
         recipe_dictionary = json.load(f)
@@ -22,10 +22,10 @@ def find_possible_meals(available_ingredients):
             if ingredient not in available_ingredients:
                 missing.append(ingredient)
 
-        missing_ingredients_dict[meal] = missing
+        results.append((meal, missing))
 
-    return missing_ingredients_dict
-
+    results.sort(key=lambda item: len(item[1]))
+    return results
 
 def write_fridge_csv(fridge_list, remove):
     fridge_csv_path = os.path.join(settings.BASE_DIR, "data", "fridge.txt")

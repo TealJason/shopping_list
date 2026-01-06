@@ -86,23 +86,26 @@
         {% endfor %}
 </div>
 <div>
-    <h2>Meals you can make with current fridge contents</h2>
-
+    <h2>Meals we can make and whats missing</h2>
     <ul>
-        {% for meal, missing in possible_meals.items %}
-                <br>
-                {{ meal }}:  Number of missing ingredients: {{ missing|length }}
-            {% if missing %}
-                <br>
-                Missing: {{ missing|join:", " }}
-                <br>
-            {% endif %}
+        {% for meal, missing in possible_meals %}
+            <br>
+            <strong>{{ meal }}</strong> — Missing: {{ missing|length }}
+
+        {% if missing %}
+            <br>
+            <small>Missing ingredients: {{ missing|join:", " }}</small>
+        {% else %}
+            <br>
+            <strong>You can make this now!</strong>
+        {% endif %}
             
         {% empty %}
-                No meals found.
+            No meals found.
         {% endfor %}
     </ul>
 </div>
+
 
 <script>
     function addIngredient() {
