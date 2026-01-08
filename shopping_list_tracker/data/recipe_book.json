@@ -76,5 +76,12 @@
         "tomato puree",
         "flour",
         "onion"
+    ],
+    "Risotto": [
+        "rice",
+        "vegetable stock",
+        "shallots",
+        "cream",
+        "cheese"
     ]
 }

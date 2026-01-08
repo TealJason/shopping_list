@@ -1,6 +1,4 @@
 black bean sauce
-bread
-butter
 cheese
 chickpeas
 chilli oil
@@ -17,7 +15,7 @@ milk
 mince
 onion
 paprika
-peannut butter
+peanut butter
 rice
 seasame oil
 soy sauce
@@ -25,3 +23,4 @@ spaghetti
 sweet pickle
 tumeric
 vegetable stock
+white rice wine vinegar

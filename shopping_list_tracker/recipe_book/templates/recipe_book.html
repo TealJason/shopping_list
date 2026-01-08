@@ -34,7 +34,7 @@
         }
         body{
             font-family: Arial, sans-serif;
-            text-align: center;
+            text-align: left;
             margin-top: 50px;
         }
         .Subheading {
@@ -44,11 +44,28 @@
         ul {
             list-style-type: none;
             padding: 0;
-            text-align: center;
+            text-align: left;
         }
-        sh1{
+        sh1 {
             font-size: small;
             color: grey;
+        }
+        .ShowRecipes ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .ShowRecipes li {
+            padding: 8px 12px;
+        }
+
+        .ShowRecipes li:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .ShowRecipes li:nth-child(even) {
+            background-color: #eeeeee;
         }
     </style>
 </head>
@@ -92,16 +109,13 @@
             <button type="submit">Remove Recipe</button>
     </div>
 
-    <div>
+    <div class="ShowRecipes">
         <h2>Current Recipes:</h2>
         <ul>
             {% for name, ingredients in recipes.items %}
-                <li>
-                    <strong>{{ name }}</strong>:
-                    {{ ingredients|join:", " }}
-                </li>
+                <li><strong>{{ name }}</strong>: {{ ingredients|join:", " }}</li>
             {% empty %}
-                <li>No recipes available.</li>
+                No recipes available.
             {% endfor %}
         </ul>
     </div>

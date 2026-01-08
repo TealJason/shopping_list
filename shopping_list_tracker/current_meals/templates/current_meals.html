@@ -41,6 +41,26 @@
             margin-top: 100px; /* adds space below the fixed navbar */
         }
 
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-top: 40px;
+            padding: 0 50px;
+            background:none;
+        }
+
+        .info-box {
+            width: 45%;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            background:none;
+        }
+        .can_make {
+            color: green;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -55,7 +75,7 @@
 </div>
 
  <div class="Subheading">
-        <h1>Mange the ingridents you currently have then check what meals you have ingredients for</h1>
+        <h1>Manage the ingridents you currently have then check what meals you have ingredients for</h1>
 </div>
 
 <div>
@@ -76,7 +96,8 @@
         <input type="submit" value="check meal" name="check_meals" value="check" size="50">  check which meals can be made with your fridge
     </form>
 </div>
-<div>
+<div class="info-container">
+<div class="info-box">
     <h2> Current Fridge/Cupboard</h2>
     <ul>
         {% for item in fridge_items %}
@@ -85,7 +106,7 @@
             No items in fridge.
         {% endfor %}
 </div>
-<div>
+<div class="info-box">
     <h2>Meals we can make and whats missing</h2>
     <ul>
         {% for meal, missing in possible_meals %}
@@ -95,9 +116,11 @@
         {% if missing %}
             <br>
             <small>Missing ingredients: {{ missing|join:", " }}</small>
+            <br>
         {% else %}
             <br>
-            <strong>You can make this now!</strong>
+            <strong class="can_make">You can make this now!</strong>
+            <br>
         {% endif %}
             
         {% empty %}
@@ -105,7 +128,7 @@
         {% endfor %}
     </ul>
 </div>
-
+</div>
 
 <script>
     function addIngredient() {
