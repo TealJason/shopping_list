@@ -41,6 +41,20 @@
             margin-top: 100px; /* adds space below the fixed navbar */
         }
 
+        .flexbox {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .CreateList, .ShowList {
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: none
+        }
+
     </style>
 </head>
 
@@ -49,7 +63,7 @@
     <div>
     <nav>
         <a href="{% url 'recipe_book' %}"><button>Recipe Book</button></a>
-        <a href="{% url 'current_meals' %}"><button>Meal check</button></a>
+        <a href="{% url 'current_meals' %}"><button>Manage Fridge</button></a>
         <a href="{% url 'shopping_list' %}"><button>Create shopping list</button></a>
     </nav>
 </div>
@@ -58,7 +72,8 @@
         <h1>Shopping list</h1>
     </div>
 
-    <div>
+<div class="flexbox">
+    <div class="CreateList">
         <form method="post" action="{% url 'shopping_list' %}">
             {% csrf_token %}
     
@@ -81,7 +96,7 @@
         </form>
     </div>
 
-    <div>
+    <div class="ShowList">
         {% if ingredient_dict %}
             <p>Shopping list for selected recipes</p>
     
@@ -95,5 +110,5 @@
             </ul>
         {% endif %}
     </div>
-    
+</div>
 </body>

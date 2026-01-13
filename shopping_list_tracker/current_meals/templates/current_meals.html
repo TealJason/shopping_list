@@ -52,13 +52,13 @@
 
         .info-box {
             width: 45%;
-            background: #f4f4f4;
+            background: #ffffff;
             padding: 20px;
             border-radius: 10px;
             background:none;
         }
         .can_make {
-            color: green;
+            color: rgb(38, 255, 38);
             font-weight: bold;
         }
     </style>
@@ -69,7 +69,7 @@
 <div>
     <nav>
         <a href="{% url 'recipe_book' %}"><button>Recipe Book</button></a>
-        <a href="{% url 'current_meals' %}"><button>Meal check</button></a>
+        <a href="{% url 'current_meals' %}"><button>Manage Fridge</button></a>
         <a href="{% url 'shopping_list' %}"><button>Create shopping list</button></a>
     </nav>
 </div>
