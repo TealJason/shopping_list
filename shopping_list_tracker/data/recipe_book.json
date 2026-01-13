@@ -83,5 +83,12 @@
         "tomato puree",
         "flour",
         "onion"
+    ],
+    "Pepper soup": [
+        "peppers",
+        "onion",
+        "cream",
+        "vegetable stock",
+        "garlic"
     ]
 }

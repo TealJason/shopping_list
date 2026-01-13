@@ -54,6 +54,10 @@
             border-radius: 10px;
             background: none
         }
+        sh1 {
+            font-size: small;
+            color: grey;
+        }
 
     </style>
 </head>
@@ -77,7 +81,7 @@
         <form method="post" action="{% url 'shopping_list' %}">
             {% csrf_token %}
     
-            <p>Select meals for shopping list:</p>
+            <p>Select meals then add the ingredients to a shopping list:</p>
     
             {% for name, ingredients in recipes.items %}
                 <label>
@@ -87,19 +91,19 @@
                 <br>
             {% endfor %}
             <br>
-            <button type="add to shopping_list">Manually add item</button>
-            <input type="check" name="manual">
-            <br>
             <button type="submit">Create shopping list</button>
             <br>
-            <input type="checkbox" name="omit" value="1"> Ommit fridge contents when making the shopping list
+            <input type="checkbox" name="omit" value="1"> Ommit fridge contents 
+            <br>
+            <sh1>By deafult when making a shopping list your fidge contents aren't added to the list.
+            <br> Use this option to ignore whats in the fride when making the list.</sh1>
+
         </form>
     </div>
 
     <div class="ShowList">
         {% if ingredient_dict %}
             <p>Shopping list for selected recipes</p>
-    
             <ul>
                 {% for name, ingredient_total in ingredient_dict.items %}
                     <li>
