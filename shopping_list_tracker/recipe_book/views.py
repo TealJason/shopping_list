@@ -4,6 +4,8 @@ from django.http import request
 import json
 import os
 from django.conf import settings
+from django.shortcuts import render, redirect
+from urllib.parse import unquote
 
 # Create your views here.
 def recipe_book(request): 
@@ -37,3 +39,26 @@ def removeRecipe(request):
             recipes = json.load(f)
 
         return render(request, "recipe_book.html", {'recipes': recipes})
+
+def editRecipe(request, recipe_name):
+    recipe_name = unquote(recipe_name)
+    recipe = utils.getRecipe(recipe_name)
+
+    if not recipe:
+        return redirect("recipe_book")
+
+    return render(request, "edit_recipie.html", {
+        "name": recipe_name,
+        "ingredients": ", ".join(recipe)
+    })
+
+def updateRecipe(request, recipe_name):
+    if request.method == "POST":
+        recipe_name = unquote(recipe_name)
+
+        new_name = request.POST["recipename"].strip()
+        ingredients = [i.strip().lower() for i in request.POST["ingredients"].split(",") if i.strip()]
+
+        utils.updateRecipe(recipe_name, new_name, ingredients)
+
+    return redirect("recipe_book")

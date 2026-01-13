@@ -36,3 +36,33 @@ def removeRecipe(recipe_name):
     # Write updated data back
     with open(path, "w") as f:
         f.write(json.dumps(recipe_dictionary, indent=4))
+        
+        
+def loadRecipes():
+    path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
+    with open(path, "r") as f:
+        return json.load(f)
+
+
+def saveRecipes(recipe_dictionary):
+    path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
+    with open(path, "w") as f:
+        f.write(json.dumps(recipe_dictionary, indent=4))
+
+
+def getRecipe(recipe_name):
+    recipes = loadRecipes()
+    return recipes.get(recipe_name)
+
+
+def updateRecipe(old_name, new_name, ingredients_list):
+    recipes = loadRecipes()
+
+    # Remove old entry
+    if old_name in recipes:
+        del recipes[old_name]
+
+    # Write updated
+    recipes[new_name] = ingredients_list
+
+    saveRecipes(recipes)

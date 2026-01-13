@@ -6,5 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("recipe_book/", views.recipe_book, name="recipe_book"),  # main app logic
     path("recipe_book/addRecipe/", views.addRecipe, name="addRecipe"),  
-    path("recipe_book/removeRecipe/", views.removeRecipe, name="removeRecipe")
+    path("recipe_book/removeRecipe/", views.removeRecipe, name="removeRecipe"),
+    path("edit/<str:recipe_name>/", views.editRecipe, name="editRecipe"),
+    path("update/<str:recipe_name>/", views.updateRecipe, name="updateRecipe"),
 ]

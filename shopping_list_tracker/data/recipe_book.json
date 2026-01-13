@@ -68,20 +68,20 @@
         " vegetable stock",
         " cream"
     ],
-    "Cottage pie": [
-        "potatoes",
-        "mixed vegetable",
-        "vegetable stock",
-        "mince",
-        "tomato puree",
-        "flour",
-        "onion"
-    ],
     "Risotto": [
         "rice",
         "vegetable stock",
         "shallots",
         "cream",
         "cheese"
+    ],
+    "Cottage pie": [
+        "potatoes",
+        "mixed vegetables",
+        "vegetable stock",
+        "mince",
+        "tomato puree",
+        "flour",
+        "onion"
     ]
 }
