@@ -1,4 +1,3 @@
-black bean sauce
 bread
 cheese
 chickpeas
@@ -16,7 +15,6 @@ mayo
 milk
 mince
 mixed vegetables
-onion
 paprika
 pasta
 peanut butter
@@ -25,9 +23,7 @@ rice
 seasame oil
 soy sauce
 spaghetti
-sweet peppers
 sweet pickle
-tofu
 tomato puree
 tumeric
 vegetable stock

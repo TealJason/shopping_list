@@ -33,14 +33,6 @@
         "celeri",
         "soy sauce"
     ],
-    "Burritos": [
-        "brown rice",
-        "vegtable stock",
-        "cumin",
-        "wraps",
-        "chopped tomatoes",
-        "chickpeas"
-    ],
     "Stir fry": [
         "stir fry vegetables",
         "noodles",
@@ -90,5 +82,22 @@
         "cream",
         "vegetable stock",
         "garlic"
+    ],
+    "Burger": [
+        "patty",
+        "buns",
+        "lettuce",
+        "cheese",
+        "onion"
+    ],
+    "Burritos": [
+        "brown rice",
+        "vegetable stock",
+        "cumin",
+        "wraps",
+        "chopped tomatoes",
+        "chickpeas",
+        "onion",
+        "peppers"
     ]
 }
