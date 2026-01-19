@@ -1,0 +1,13 @@
+<h1>Edit Recipe</h1>
+
+<form method="post" action="{% url 'updateRecipe' name %}">
+    {% csrf_token %}
+
+    Recipe name:<br>
+    <input type="text" name="recipename" value="{{ name }}"><br><br>
+
+    Ingredients (comma separated):<br>
+    <input type="text" name="ingredients" value="{{ ingredients }}"><br><br>
+
+    <button type="submit">Save Changes</button>
+</form>

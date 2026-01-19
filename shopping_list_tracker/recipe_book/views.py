@@ -47,7 +47,7 @@ def editRecipe(request, recipe_name):
     if not recipe:
         return redirect("recipe_book")
 
-    return render(request, "edit_recipie.html", {
+    return render(request, "edit_recipe.html", {
         "name": recipe_name,
         "ingredients": ", ".join(recipe)
     })
@@ -60,5 +60,28 @@ def updateRecipe(request, recipe_name):
         ingredients = [i.strip().lower() for i in request.POST["ingredients"].split(",") if i.strip()]
 
         utils.updateRecipe(recipe_name, new_name, ingredients)
+
+    return redirect("recipe_book")
+
+def editRecipeCard(request, recipe_name):
+    recipe_name = unquote(recipe_name)
+    card = utils.getRecipeCard(recipe_name)
+
+    if card is None:
+        return redirect("recipe_book")
+
+    return render(request, "view_recipe_card.html", {
+        "name": recipe_name,
+        "card": card
+    })
+
+def updateRecipeCard(request, recipe_name):
+    if request.method == "POST":
+        recipe_name = unquote(recipe_name)
+
+        new_name = request.POST["recipename"].strip()
+        card_text = request.POST.get("recipe_card", "").strip()
+
+        utils.updateRecipeCard(recipe_name, new_name, card_text)
 
     return redirect("recipe_book")

@@ -1,0 +1,13 @@
+<h1>Recipe Card</h1>
+Hello, this is the recipe card for <strong>{{ name }}</strong>.
+Here you can edit and view instructions to make this recipe!
+
+<form method="post" action="{% url 'updateRecipeCard' name %}">
+    {% csrf_token %}
+
+    Recipe name:<br>
+    <input type="text" name="recipename" value="{{ name }}"><br><br>
+
+    <textarea name="recipe_card" rows="40" cols="80">{{ card }}</textarea>
+    <button type="submit">Save Changes</button>
+</form>

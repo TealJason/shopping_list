@@ -37,23 +37,19 @@ def removeRecipe(recipe_name):
     with open(path, "w") as f:
         f.write(json.dumps(recipe_dictionary, indent=4))
         
-        
 def loadRecipes():
     path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
     with open(path, "r") as f:
         return json.load(f)
-
 
 def saveRecipes(recipe_dictionary):
     path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
     with open(path, "w") as f:
         f.write(json.dumps(recipe_dictionary, indent=4))
 
-
 def getRecipe(recipe_name):
     recipes = loadRecipes()
     return recipes.get(recipe_name)
-
 
 def updateRecipe(old_name, new_name, ingredients_list):
     recipes = loadRecipes()
@@ -66,3 +62,32 @@ def updateRecipe(old_name, new_name, ingredients_list):
     recipes[new_name] = ingredients_list
 
     saveRecipes(recipes)
+
+def loadRecipesCards():
+    path = os.path.join(settings.BASE_DIR, "data", "recipe_card.json")
+    with open(path, "r") as f:
+        return json.load(f)
+
+
+def saveRecipesCard(recipe_dictionary):
+    path = os.path.join(settings.BASE_DIR, "data", "recipe_card.json")
+    with open(path, "w") as f:
+        f.write(json.dumps(recipe_dictionary, indent=4))
+
+
+def getRecipeCard(recipe_name):
+    recipes = loadRecipesCards()
+    return recipes.get(recipe_name)
+
+
+def updateRecipeCard(old_name, new_name, card_text):
+    recipes = loadRecipesCards()
+
+    # Remove old entry
+    if old_name in recipes:
+        del recipes[old_name]
+
+    # Write updated
+    recipes[new_name] = card_text
+
+    saveRecipesCard(recipes)

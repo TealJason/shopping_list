@@ -1,0 +1,90 @@
+{
+    "Mapo Tofu": [
+        "tofu",
+        "black bean sauce",
+        "rice",
+        "sweet peppers",
+        "soy sauce",
+        "mince"
+    ],
+    "Bolognaise": [
+        "spaghetti",
+        "sauce",
+        "mince",
+        "onion",
+        "tomato puree",
+        "garlic",
+        "carrots",
+        "celeri",
+        "soy sauce"
+    ],
+    "Stir fry": [
+        "stir fry vegetables",
+        "noodles",
+        "soy sauce",
+        "sweet and sour "
+    ],
+    "Pasta and sauce": [
+        "pasta",
+        "sauce"
+    ],
+    "Curry": [
+        "chopped tomatoes",
+        "kidney beans",
+        "chickpeas",
+        "coconut milk",
+        "rice",
+        "cumin",
+        "tumeric",
+        "paprika",
+        "vegetable stock",
+        "lentils "
+    ],
+    "Pea soup": [
+        "peas",
+        " vegetable stock",
+        " cream"
+    ],
+    "Risotto": [
+        "rice",
+        "vegetable stock",
+        "shallots",
+        "cream",
+        "cheese"
+    ],
+    "Cottage pie": [
+        "potatoes",
+        "mixed vegetables",
+        "vegetable stock",
+        "mince",
+        "tomato puree",
+        "flour",
+        "onion"
+    ],
+    "Pepper soup": [
+        "peppers",
+        "onion",
+        "cream",
+        "vegetable stock",
+        "garlic"
+    ],
+    "Burger": [
+        "patty",
+        "buns",
+        "lettuce",
+        "cheese",
+        "onion"
+    ],
+    "Burritos": [
+        "brown rice",
+        "vegetable stock",
+        "cumin",
+        "wraps",
+        "chopped tomatoes",
+        "chickpeas",
+        "onion",
+        "peppers"
+    ],
+    "Ploughmans": "This is just a cheese, pickle, mayo and lettuce sandwich.",
+    "Peanut noodles": "Add tagliatelle to a pot of boiling water. While its cooking add two table spoons of peanut butter into a bowl, three table spoons of sesame oil, three table spoons of soy sauce, one table spoon of chilli oil and one table spoon of white rice wine vinegar. Mix thoroughly and add boiling water to thin. Drain the water from the pot of tagliatelle and mix in the peanut sauce. Garnish with chopped spring onions and chilli crips if desired."
+}

@@ -1,4 +1,5 @@
 bread
+buns
 cheese
 chickpeas
 chilli oil
@@ -13,17 +14,21 @@ lentils
 lettuce
 mayo
 milk
-mince
-mixed vegetables
+onion
 paprika
 pasta
+patty
 peanut butter
+peas
 potatoes
 rice
+sauce
 seasame oil
 soy sauce
 spaghetti
 sweet pickle
+tagliatelle
+tofu
 tomato puree
 tumeric
 vegetable stock
