@@ -1,7 +1,6 @@
 import os
 import json
 from django.conf import settings
-import csv
 
 def find_possible_meals(available_ingredients):
     recipie_json_path = os.path.join(settings.BASE_DIR, "data", "recipe_book.json")
