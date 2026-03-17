@@ -77,58 +77,56 @@
  <div class="Subheading">
         <h1>Manage the ingridents you currently have then check what meals you have ingredients for</h1>
 </div>
+<form method="post" action="{% url 'update_or_check_fridge' %}">
+    {% csrf_token %}
 
-<div>
-    <form method="post" action="{% url 'update_or_check_fridge' %}">
-        {% csrf_token %}
-        <label>Enter ingredients:</label><br>
+    <div class="info-container">
 
-        <div id="ingredients-container">
-            <input type="text" name="ingredients" size="50">
+        <!-- LEFT BOX -->
+        <div class="info-box">
+            <h2>Current Fridge/Cupboard</h2>
+            <ul id="fridge-list" style="list-style-type:none;">
+                {% for item in fridge_items %}
+                <li>
+                    <input type="hidden" name="current_items" value="{{ item }}">
+                    <span>{{ item }}</span>
+                    <button type="button" onclick="removeItem(this)">✕</button>
+                </li>
+                {% empty %}
+                    No items in fridge.
+                {% endfor %}
+            </ul>
+
+            <br>
+            <button type="submit">Save fridge</button>
         </div>
-        <br>
-        <button type="button" onclick="addIngredient()">Add another ingredient</button>
-        <br><br>
-        <input type="submit" value="update fridge/cupboard" name="add" value="add"> 
-        <br><br>
-        <input type="checkbox" name="remove" value="1"> Remove ingredients
-        <br><br>
-        <input type="submit" value="check meal" name="check_meals" value="check" size="50">  check which meals can be made with your fridge
-    </form>
-</div>
-<div class="info-container">
-<div class="info-box">
-    <h2> Current Fridge/Cupboard</h2>
-    <ul>
-        {% for item in fridge_items %}
-            {{ item }}<br>
-        {% empty %}
-            No items in fridge.
-        {% endfor %}
-</div>
-<div class="info-box">
-    <h2>Meals we can make and whats missing</h2>
-    <ul>
-        {% for meal, missing in possible_meals %}
-            <br>
-            <strong>{{ meal }}</strong> — Missing: {{ missing|length }}
 
-        {% if missing %}
-            <br>
-            <small>Missing ingredients: {{ missing|join:", " }}</small>
-            <br>
-        {% else %}
-            <br>
-            <strong class="can_make">You can make this now!</strong>
-            <br>
-        {% endif %}
-            
-        {% empty %}
-            No meals found.
-        {% endfor %}
-    </ul>
-</div>
-</div>
+        <!-- RIGHT BOX -->
+        <div class="info-box">
+            <h2>Meals we can make and whats missing</h2>
+            <ul>
+                {% for meal, missing in possible_meals %}
+                    <br>
+                    <strong>{{ meal }}</strong> — Missing: {{ missing|length }}
+
+                    {% if missing %}
+                        <br>
+                        <small>Missing ingredients: {{ missing|join:", " }}</small>
+                        <br>
+                    {% else %}
+                        <br>
+                        <strong class="can_make">You can make this now!</strong>
+                        <br>
+                    {% endif %}
+
+                {% empty %}
+                    No meals found.
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</form>
 
 <script>
     function addIngredient() {
@@ -141,5 +139,10 @@
         container.appendChild(input);
     }
 </script>   
-
+<script>
+    function removeItem(button) {
+        const li = button.parentElement;
+        li.remove();
+    }
+    </script>
 </body>

@@ -104,7 +104,7 @@
     <div class="ShowList">
         {% if ingredient_dict %}
             <p>Shopping list for selected recipes</p>
-            <ul>
+            <ul style="list-style-type:none;">
                 {% for name, ingredient_total in ingredient_dict.items %}
                     <li>
                         {{ name }}: {{ ingredient_total }}

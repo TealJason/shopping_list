@@ -1,4 +1,3 @@
-bread
 buns
 cheese
 chickpeas
@@ -15,10 +14,7 @@ lettuce
 mayo
 milk
 onion
-paprika
 pasta
-patty
-peanut butter
 peas
 potatoes
 rice
